@@ -1,19 +1,56 @@
-import { useState } from "react";
-import Navbar from "./components/layout/navbar/Navbar";
-import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
+import { ItemListContainer } from "./componentes/pages/itemListContainer/ItemListContainer";
 
-const App = () => {
-  const [nombre, setNombre] = useState("Eri");
-  let edad = 37;
-  let greeting = "Bienvenidas";
+import { ItemDetailContainer } from "./componentes/pages/itemDetail/ItemDetailContainer";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./componentes/layout/Layout";
+import { CartContainer } from "./componentes/pages/CartContainer";
+
+function App() {
+  let greeting = "Bienvenidas!";
 
   return (
-    <div>
-      <Navbar />
-      <ItemListContainer nombre={nombre} edad={edad} greeting={greeting} />
-      <button onClick={() => setNombre("maria")}>Cambiar nombre</button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route
+            path="/"
+            element={<ItemListContainer greeting={greeting} sx={{ m: 2 }} />}
+          />
+          <Route
+            path="/categoria/:categoryName"
+            element={<ItemListContainer sx={{ m: 2 }} />}
+          />
+          <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<CartContainer />} />
+        </Route>
+        <Route
+          path="*"
+          element={
+            <div
+              style={{
+                margin: "20px",
+              }}
+            >
+              <h1>error 404</h1>
+              <h3>inexistente</h3>
+            </div>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
+
+{
+  /* <NavBar />
+      <Box sx={{ padding: 2, bgcolor: "primary.light" }}>
+        <Box sx={{ mb: 2, display: "flex" }}>
+          <ItemListContainer greeting={greeting} sx={{ m: 2 }} />
+        </Box>
+        <ItemDetailContainer />
+      </Box>
+      <ProductDetailContainer /> */
+}

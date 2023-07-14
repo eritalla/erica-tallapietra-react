@@ -21,7 +21,6 @@ export const ItemDetailContainer = () => {
       ...productSelected,
       quantity: cantidad,
     };
-    // setQuantityAdded(cantidad);
 
     addToCart(data);
     Swal.fire({

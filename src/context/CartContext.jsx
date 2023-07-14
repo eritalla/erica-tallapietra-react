@@ -66,7 +66,6 @@ const CartContextProvider = ({ children }) => {
     getTotalQuantityById,
     getTotalItems,
     getTotalPrice,
-    /*las propiedades que ponga en este let data son las que desp puedo consumir en cartContainer.jsx en la const (min 27)*/
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

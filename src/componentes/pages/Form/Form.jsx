@@ -1,4 +1,3 @@
-import { AttractionsOutlined } from "@mui/icons-material";
 import { useState } from "react";
 
 export const Form = () => {
@@ -10,7 +9,7 @@ export const Form = () => {
     e.preventDefault();
     let data = {
       nombreUsuario: userData.name,
-      apellidoUsuario: lastname,
+      apellidoUsuario: lastName,
     };
     console.log(data);
   };

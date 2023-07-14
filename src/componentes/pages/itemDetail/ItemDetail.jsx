@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom";
 import { ItemCount } from "../../common/itemCount/ItemCount";
-import { useState } from "react";
-import { Button } from "@mui/material";
 
 export const ItemDetail = ({ productSelected, cantidad, handleonAdd }) => {
   return (
@@ -34,38 +31,6 @@ export const ItemDetail = ({ productSelected, cantidad, handleonAdd }) => {
       ) : (
         <h3>No hay stock</h3>
       )}
-
-      {/* {quantityAdded > 0 ? (
-          <div>
-            <Link to="/cart">
-              <Button variant="contained" color="success">
-                Terminar compra
-              </Button>
-            </Link>
-            <Link to="/">
-              <Button variant="contained" color="primary">
-                Seguir comprando
-              </Button>
-            </Link>
-          </div>
-        ) : (
-          <ItemCount
-            initial={cantidad}
-            stock={productSelected.stock}
-            onAdd={handleonAdd}
-          />
-        )} */}
     </div>
   );
 };
-// const [quantityAdded, setQuantityAdded] = useState(0);
-
-// const handleonAdd = (cantidad) => {
-//   let data = {
-//     ...productSelected,
-//     quantity: cantidad,
-//   };
-//   // setQuantityAdded(cantidad);
-
-//   addToCart(data);
-// };
